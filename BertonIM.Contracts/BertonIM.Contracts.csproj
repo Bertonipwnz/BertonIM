@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>BertonIM.Contracts</PackageId>
+		<Version>0.0.1</Version>
+		<Authors>Bertonipwnz</Authors>
+		<PackageOutputPath>./nupkg</PackageOutputPath>
   </PropertyGroup>
 
 </Project>
