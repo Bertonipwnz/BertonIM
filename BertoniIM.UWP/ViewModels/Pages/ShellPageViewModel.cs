@@ -1,5 +1,4 @@
-﻿
-namespace BertoniIM.UWP.ViewModels.Pages
+﻿namespace BertoniIM.UWP.ViewModels.Pages
 {
 	using CommunityToolkit.Mvvm.ComponentModel;
 	

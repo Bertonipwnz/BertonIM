@@ -3,33 +3,34 @@
 namespace BertoniIM.UWP.Views.Pages
 {
 	using BertoniIM.UWP.ViewModels.Pages;
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Linq;
-	using System.Runtime.InteropServices.WindowsRuntime;
-	using Windows.Foundation;
-	using Windows.Foundation.Collections;
-	using Windows.UI.Xaml;
 	using Windows.UI.Xaml.Controls;
-	using Windows.UI.Xaml.Controls.Primitives;
-	using Windows.UI.Xaml.Data;
-	using Windows.UI.Xaml.Input;
-	using Windows.UI.Xaml.Media;
-	using Windows.UI.Xaml.Navigation;
 
 	/// <summary>
-	/// An empty page that can be used on its own or navigated to within a Frame.
+	/// Страница оболочка.
 	/// </summary>
 	public sealed partial class ShellPage : Page
 	{
+		#region Private Fields
+
+		/// <summary>
+		/// Модель представления страницы.
+		/// </summary>
 		private ShellPageViewModel _viewModel;
 
+		#endregion Private Fields
+
+		#region Public Constructors
+
+		/// <summary>
+		/// Инициализирует <see cref="ShellPage"/>
+		/// </summary>
 		public ShellPage()
 		{
 			_viewModel = new ShellPageViewModel();
 			DataContext = _viewModel;
 			this.InitializeComponent();
 		}
+
+		#endregion Public Constructors
 	}
 }
