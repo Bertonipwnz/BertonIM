@@ -123,6 +123,10 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Pages\ChatsPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\LoginPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\RegisterPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\ShellPageViewModel.cs" />
     <Compile Include="Views\Pages\ChatsPage.xaml.cs">
       <DependentUpon>ChatsPage.xaml</DependentUpon>
     </Compile>
@@ -182,9 +186,7 @@
       <Version>6.2.14</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
