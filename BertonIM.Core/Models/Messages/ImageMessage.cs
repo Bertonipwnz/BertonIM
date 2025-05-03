@@ -1,10 +1,11 @@
 ﻿namespace BertonIM.Core.Models.Messages
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Text;
-
-	internal class ImageMessage
+	using BertonIM.Core.Models.Base;
+	
+	/// <summary>
+	/// Модель сообщения изображения.
+	/// </summary>
+	public class ImageMessage : BaseMessage
 	{
 	}
 }

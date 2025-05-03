@@ -1,10 +1,9 @@
 ﻿namespace BertonIM.Core.Auth.Requests
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Text;
-
-	internal class RegisterRequest
+	/// <summary>
+	/// Модель запроса регистрации.
+	/// </summary>
+	public class RegisterRequest
 	{
 	}
 }

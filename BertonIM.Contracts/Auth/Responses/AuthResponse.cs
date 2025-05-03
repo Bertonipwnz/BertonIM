@@ -1,10 +1,9 @@
 ﻿namespace BertonIM.Core.Auth.Responses
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Text;
-
-	internal class AuthResponse
+	/// <summary>
+	/// Модель ответа авторизации.
+	/// </summary>
+	public class AuthResponse
 	{
 	}
 }

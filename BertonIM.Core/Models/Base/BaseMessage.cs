@@ -1,10 +1,13 @@
 ﻿namespace BertonIM.Core.Models.Base
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Text;
-
+	/// <summary>
+	/// Базовая модель сообщения.
+	/// </summary>
 	public abstract class BaseMessage
 	{
+		/// <summary>
+		/// Айди сообщения.
+		/// </summary>
+		public long Id { get; set; }
 	}
 }
