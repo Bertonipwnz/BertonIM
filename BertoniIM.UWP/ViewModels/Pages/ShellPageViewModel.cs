@@ -1,13 +1,12 @@
 ﻿
 namespace BertoniIM.UWP.ViewModels.Pages
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Threading.Tasks;
-
-	internal class ShellPageViewModel
+	using CommunityToolkit.Mvvm.ComponentModel;
+	
+	/// <summary>
+	/// Модель представления страницы оболочки.
+	/// </summary>
+	public class ShellPageViewModel : ObservableObject
 	{
 	}
 }

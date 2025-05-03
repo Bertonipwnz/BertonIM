@@ -2,6 +2,7 @@
 
 namespace BertoniIM.UWP.Views.Pages
 {
+	using BertoniIM.UWP.ViewModels.Pages;
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
@@ -22,8 +23,12 @@ namespace BertoniIM.UWP.Views.Pages
 	/// </summary>
 	public sealed partial class ShellPage : Page
 	{
+		private ShellPageViewModel _viewModel;
+
 		public ShellPage()
 		{
+			_viewModel = new ShellPageViewModel();
+			DataContext = _viewModel;
 			this.InitializeComponent();
 		}
 	}

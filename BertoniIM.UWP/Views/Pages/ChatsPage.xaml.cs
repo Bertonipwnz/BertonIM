@@ -2,6 +2,7 @@
 
 namespace BertoniIM.UWP.Views.Pages
 {
+	using BertoniIM.UWP.ViewModels.Pages;
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
@@ -22,8 +23,12 @@ namespace BertoniIM.UWP.Views.Pages
 	/// </summary>
 	public sealed partial class ChatsPage : Page
 	{
+		private ChatsPageViewModel _viewModel;
+
 		public ChatsPage()
 		{
+			_viewModel = new ChatsPageViewModel();
+			DataContext = _viewModel;
 			this.InitializeComponent();
 		}
 	}

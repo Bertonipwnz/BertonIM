@@ -2,6 +2,7 @@
 
 namespace BertoniIM.UWP.Views.Pages
 {
+	using BertoniIM.UWP.ViewModels.Pages;
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
@@ -22,8 +23,12 @@ namespace BertoniIM.UWP.Views.Pages
 	/// </summary>
 	public sealed partial class RegisterPage : Page
 	{
+		private RegisterPageViewModel _viewModel;
+
 		public RegisterPage()
 		{
+			_viewModel = new RegisterPageViewModel();
+			DataContext = _viewModel;
 			this.InitializeComponent();
 		}
 	}

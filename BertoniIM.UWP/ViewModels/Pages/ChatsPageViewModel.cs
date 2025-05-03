@@ -1,12 +1,9 @@
 ﻿namespace BertoniIM.UWP.ViewModels.Pages
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Threading.Tasks;
-
-	internal class ChatsPageViewModel
+	/// <summary>
+	/// Модель представления страницы чатов.
+	/// </summary>
+	public class ChatsPageViewModel
 	{
 	}
 }
