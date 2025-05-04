@@ -1,8 +1,8 @@
 ﻿namespace BertonIM.Server.Services
 {
-    using BertonIM.Contracts.Auth.Interfaces;
-    using BertonIM.Core.Auth.Requests;
-    using BertonIM.Core.Auth.Responses;
+	using BertonIM.Contracts.Auth.Interfaces;
+	using BertonIM.Core.Auth.Requests;
+	using BertonIM.Core.Auth.Responses;
 	using BertonIM.Core.Interfaces;
 	using BertonIM.Core.Models.Accounts;
 	using System.Threading.Tasks;
@@ -10,7 +10,7 @@
 	/// <summary>
 	/// Сервис аутенфикации.
 	/// </summary>
-    public class AuthService : IAuthService
+	public class AuthService : IAuthService
 	{
 		#region Private Fields
 
@@ -33,7 +33,7 @@
 		/// </summary>
 		/// <param name="repository">Репозиторий аккаунтов.</param>
 		/// <param name="jwtHelper">JWT хелпер.</param>
-		public AuthService(IAccountRepository repository,JwtHelper jwtHelper)
+		public AuthService(IAccountRepository repository, JwtHelper jwtHelper)
 		{
 			_accaountRepository = repository;
 			_jwtHelper = jwtHelper;
