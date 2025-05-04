@@ -1,28 +1,37 @@
 ﻿namespace BertonIM.Core.Models.Base
 {
-    /// <summary>
-    /// Базовая модель аккаунта.
-    /// </summary>
-    public abstract class BaseAccount
-    {
-        /// <summary>
-        /// Айди аккаунта.
-        /// </summary>
-        public long Id { get; set; }
+	using BertonIM.Core.Enums;
+	using System;
+	using System.Collections.Generic;
 
-        /// <summary>
-        /// Эмейл.
-        /// </summary>
-        public string Email { get; set; } = string.Empty;
+	/// <summary>
+	/// Базовая модель аккаунта.
+	/// </summary>
+	public abstract class BaseAccount
+	{
+		/// <summary>
+		/// Айди аккаунта.
+		/// </summary>
+		public long Id { get; set; }
 
-        /// <summary>
-        /// Имя пользователя.
-        /// </summary>
-		public string Username { get; set; } = string.Empty;
+		/// <summary>
+		/// Имя пользователя.
+		/// </summary>
+		public string Username { get; set; }
 
-        /// <summary>
-        /// Url аватара.
-        /// </summary>
-		public string AvatarUrl { get; set; } = string.Empty;
+		/// <summary>
+		/// Дата создания.
+		/// </summary>
+		public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+		/// <summary>
+		/// Тип аккаунта.
+		/// </summary>
+		public AccountType AccountType { get; set; }
+
+		/// <summary>
+		/// Чаты.
+		/// </summary>
+		public List<BaseChat> Chats { get; set; } = new();
 	}
 }
