@@ -7,5 +7,9 @@
     /// </summary>
     public class User : BaseAccount
     {
-    }
+		public string Email { get; set; }
+		public string Phone { get; set; }
+
+		public string PasswordHash { get; set; } = string.Empty;
+	}
 }

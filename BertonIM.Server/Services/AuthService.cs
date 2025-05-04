@@ -1,20 +1,54 @@
 ﻿namespace BertonIM.Server.Services
 {
-	using BertonIM.Contracts.Auth.Interfaces;
-	using BertonIM.Core.Auth.Requests;
-	using BertonIM.Core.Auth.Responses;
+    using BertonIM.Contracts.Auth.Interfaces;
+    using BertonIM.Core.Auth.Requests;
+    using BertonIM.Core.Auth.Responses;
+	using BertonIM.Core.Interfaces;
+	using BertonIM.Core.Models.Accounts;
 	using System.Threading.Tasks;
 
-	public class AuthService : IAuthService
+    public class AuthService : IAuthService
 	{
-		public Task<AuthResponse> LoginAsync(LoginRequest request)
+		private readonly JwtHelper _jwtHelper;
+		private readonly IUserRepository _userRepository;
+
+		public AuthService(IUserRepository repository,JwtHelper jwtHelper)
 		{
-			throw new NotImplementedException();
+			_userRepository = repository;
+			_jwtHelper = jwtHelper;
 		}
 
-		public Task<AuthResponse> RegisterAsync(RegisterRequest request)
+		public async Task<AuthResponse> LoginAsync(LoginRequest request)
 		{
-			throw new NotImplementedException();
+			var user = await _userRepository.GetUserByEmailAsync(request.Login);
+			if (user == null || !VerifyPassword(request.Password, user.PasswordHash))
+				return new AuthResponse { Error = "Invalid credentials" };
+
+			var token = _jwtHelper.GenerateJwtToken(user);
+			return new AuthResponse { Token = token, User = user };
+		}
+
+		public async Task<AuthResponse> RegisterAsync(RegisterRequest request)
+		{
+			var user = new User
+			{
+				Username = request.UserName,
+				Email = request.Email,
+				PasswordHash = HashPassword(request.Password)
+			};
+
+			await _userRepository.AddUserAsync(user);
+			return new AuthResponse { User = user };
+		}
+
+		private string HashPassword(string password)
+		{
+			return BCrypt.Net.BCrypt.HashPassword(password, workFactor: 12);
+		}
+
+		private bool VerifyPassword(string password, string storedHash)
+		{
+			return BCrypt.Net.BCrypt.Verify(password, storedHash);
 		}
 	}
 }

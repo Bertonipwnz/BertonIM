@@ -7,5 +7,6 @@
 	/// </summary>
 	public class ImageMessage : BaseMessage
 	{
+		public string ImageUrl { get; set; }
 	}
 }

@@ -7,5 +7,7 @@
 	/// </summary>
 	public class GroupChat : BaseChat
 	{
+		public int MaxMembers { get; set; }
+		public string Description { get; set; } = string.Empty;
 	}
 }
