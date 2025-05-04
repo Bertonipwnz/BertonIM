@@ -7,6 +7,9 @@
 	/// </summary>
 	public class ImageMessage : BaseMessage
 	{
-		public string ImageUrl { get; set; }
+		/// <summary>
+		/// Url изображения.
+		/// </summary>
+		public string ImageUrl { get; set; } = string.Empty;
 	}
 }

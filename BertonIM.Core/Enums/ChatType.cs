@@ -1,9 +1,8 @@
 ﻿namespace BertonIM.Core.Enums
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Text;
-
+	/// <summary>
+	/// Тип чата.
+	/// </summary>
 	public enum ChatType
 	{
 		Private = 0,

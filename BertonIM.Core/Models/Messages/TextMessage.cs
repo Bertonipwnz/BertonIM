@@ -7,6 +7,9 @@
 	/// </summary>
 	public class TextMessage : BaseMessage
 	{
-		public string Content { get; set; }
+		/// <summary>
+		/// Контент сообщения.
+		/// </summary>
+		public string Content { get; set; } = string.Empty;
 	}
 }

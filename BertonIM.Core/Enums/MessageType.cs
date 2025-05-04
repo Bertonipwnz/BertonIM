@@ -1,9 +1,8 @@
 ﻿namespace BertonIM.Core.Enums
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Text;
-
+	/// <summary>
+	/// Тип сообщения.
+	/// </summary>
 	public enum MessageType
 	{
 		Text = 0,

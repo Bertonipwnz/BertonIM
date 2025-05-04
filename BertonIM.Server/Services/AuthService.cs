@@ -10,9 +10,9 @@
     public class AuthService : IAuthService
 	{
 		private readonly JwtHelper _jwtHelper;
-		private readonly IUserRepository _userRepository;
+		private readonly IAccountRepository _userRepository;
 
-		public AuthService(IUserRepository repository,JwtHelper jwtHelper)
+		public AuthService(IAccountRepository repository,JwtHelper jwtHelper)
 		{
 			_userRepository = repository;
 			_jwtHelper = jwtHelper;
@@ -20,12 +20,12 @@
 
 		public async Task<AuthResponse> LoginAsync(LoginRequest request)
 		{
-			var user = await _userRepository.GetUserByEmailAsync(request.Login);
+			var user = await _userRepository.GetAccountByEmailAsync(request.Login);
 			if (user == null || !VerifyPassword(request.Password, user.PasswordHash))
 				return new AuthResponse { Error = "Invalid credentials" };
 
 			var token = _jwtHelper.GenerateJwtToken(user);
-			return new AuthResponse { Token = token, User = user };
+			return new AuthResponse { Token = token, Account = user };
 		}
 
 		public async Task<AuthResponse> RegisterAsync(RegisterRequest request)
@@ -37,8 +37,8 @@
 				PasswordHash = HashPassword(request.Password)
 			};
 
-			await _userRepository.AddUserAsync(user);
-			return new AuthResponse { User = user };
+			await _userRepository.AddAccountAsync(user);
+			return new AuthResponse { Account = user };
 		}
 
 		private string HashPassword(string password)

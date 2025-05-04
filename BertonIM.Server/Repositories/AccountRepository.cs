@@ -6,21 +6,21 @@
 	using Microsoft.EntityFrameworkCore;
 	using System;
 
-	public class UserRepository : IUserRepository
+	public class AccountRepository : IAccountRepository
 	{
 		private readonly AppDbContext _dbContext;
 
-		public UserRepository(AppDbContext dbContext)
+		public AccountRepository(AppDbContext dbContext)
 		{
 			_dbContext = dbContext;
 		}
 
-		public async Task<User?> GetUserByEmailAsync(string email)
+		public async Task<User?> GetAccountByEmailAsync(string email)
 		{
 			return await _dbContext.Accounts.OfType<User>().FirstOrDefaultAsync(u => u.Email == email);
 		}
 
-		public async Task AddUserAsync(User user)
+		public async Task AddAccountAsync(User user)
 		{
 			await _dbContext.Accounts.AddAsync(user);
 			await _dbContext.SaveChangesAsync();
