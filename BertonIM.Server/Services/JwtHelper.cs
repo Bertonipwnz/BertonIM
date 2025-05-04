@@ -6,16 +6,41 @@
     using System.Security.Claims;
     using System.Text;
 
+    /// <summary>
+    /// Хелпер по работе с JWT.
+    /// </summary>
     public class JwtHelper
     {
-        private readonly IConfiguration _config;
+		#region Private Fields
 
-        public JwtHelper(IConfiguration config)
+		/// <summary>
+		/// Экземпляр конфига.
+		/// </summary>
+		private readonly IConfiguration _config;
+
+		#endregion Private Fields
+
+		#region Public Constructors
+
+        /// <summary>
+        /// Создает экземпляр <see cref="JwtHelper"/>
+        /// </summary>
+        /// <param name="config">Конфиг.</param>
+		public JwtHelper(IConfiguration config)
         {
             _config = config;
         }
 
-        public string GenerateJwtToken(User user)
+		#endregion Public Constructors
+
+		#region Public Methods
+
+		/// <summary>
+		/// Генерирует JWT конфиг.
+		/// </summary>
+		/// <param name="user">Модель пользователя.</param>
+		/// <returns>JWT токен.</returns>
+		public string GenerateJwtToken(User user)
         {
             var key = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
             var securityKey = new SymmetricSecurityKey(key);
@@ -38,5 +63,7 @@
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-    }
+
+		#endregion Public Methods
+	}
 }
